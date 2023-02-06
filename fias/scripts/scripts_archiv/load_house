@@ -1,0 +1,7 @@
+#!/bin/bash
+#### sudo ./load_house 01  команда запуска скрипта
+SOURCE_PATH='/home/maksim/fias/'$1
+DEST_PATH='/var/lib/postgresql' 
+sed '1s/^\xEF\xBB\xBF//' < $SOURCE_PATH/AS_HOUSES_202* > $SOURCE_PATH/house.xml #перекодировали в UTF-8
+cp -f $SOURCE_PATH/house.xml $DEST_PATH/AS_HOUSES_OBJ.XML  #скопировали в домашнюю директорию POSTGRESQL
+cat psql_load_house_obj.sql | PGPASSWORD=momqV93V psql -h 127.0.0.1 -U shmv -d shmv #выполнили скрипт загрузки в базу

@@ -1,0 +1,7 @@
+#!/bin/bash
+#### sudo ./load_mun_hierarchy 01  команда запуска скрипта
+SOURCE_PATH='/home/maksim/fias/'$1
+DEST_PATH='/var/lib/postgresql' 
+sed '1s/^\xEF\xBB\xBF//' < $SOURCE_PATH/AS_MUN_HIERARCHY_* > $SOURCE_PATH/mun_h.xml #перекодировали в UTF-8
+cp -f $SOURCE_PATH/mun_h.xml $DEST_PATH/AS_MUN_HIERARCHY.XML  #скопировали в домашнюю директорию POSTGRESQL
+cat psql_load_mun_hierarchy.sql | PGPASSWORD=momqV93V psql -h 127.0.0.1 -U shmv -d shmv #выполнили скрипт загрузки в базу
