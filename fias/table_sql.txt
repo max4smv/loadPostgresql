@@ -1,0 +1,172 @@
+Все таблицы что бвди в схеме. Возможно часть исполоьзовалась для отладки.
+
+
+CREATE TABLE IF NOT EXISTS public.addr_obj
+(
+    id integer,
+    objectid integer,
+    objectguid text COLLATE pg_catalog."default",
+    name text COLLATE pg_catalog."default",
+    typename text COLLATE pg_catalog."default",
+    level integer,
+    opertypeid integer,
+    previd integer,
+    nextid integer,
+    updatedate date,
+    startdate date,
+    enddate date,
+    isactual integer,
+    isactive integer
+)
+
+
+CREATE TABLE IF NOT EXISTS public.addr_obj_params
+(
+    id integer,
+    objectid integer,
+    changeid integer,
+    changeidend integer,
+    typeid integer,
+    value text COLLATE pg_catalog."default",
+    updatedate date,
+    startdate date,
+    enddate date
+)
+
+REATE TABLE IF NOT EXISTS public.addr_types
+(
+    id integer,
+    level integer,
+    name text COLLATE pg_catalog."default",
+    shortname text COLLATE pg_catalog."default",
+    isactive text COLLATE pg_catalog."default"
+)
+
+CREATE TABLE IF NOT EXISTS public.adm_hierarchy
+(
+    id integer,
+    objectid integer,
+    parentobjid integer,
+    changeid integer,
+    regioncode integer,
+    areacode integer,
+    citycode integer,
+    placecode integer,
+    plancode integer,
+    streetcode integer,
+    previd integer,
+    nextid integer,
+    updatedate date,
+    startdate date,
+    enddate date,
+    isactive integer,
+    path text COLLATE pg_catalog."default"
+)
+
+
+CREATE TABLE IF NOT EXISTS public.gar_addr
+(
+    id integer,
+    parent_id_adm integer,
+    object_id integer,
+    objectguid text COLLATE pg_catalog."default",
+    name text COLLATE pg_catalog."default",
+    typename text COLLATE pg_catalog."default",
+    full_typename text COLLATE pg_catalog."default",
+    level integer,
+    kladr text COLLATE pg_catalog."default"
+)
+
+CREATE TABLE IF NOT EXISTS public.gar_houses
+(
+    id integer,
+    object_id integer,
+    parent_id_adm integer,
+    objectguid text COLLATE pg_catalog."default",
+    housenum text COLLATE pg_catalog."default",
+    typename text COLLATE pg_catalog."default",
+    full_typename text COLLATE pg_catalog."default",
+    addnum1 text COLLATE pg_catalog."default",
+    add_typename1 text COLLATE pg_catalog."default",
+    add_full_typename1 text COLLATE pg_catalog."default",
+    addnum2 text COLLATE pg_catalog."default",
+    add_typename2 text COLLATE pg_catalog."default",
+    add_full_typename2 text COLLATE pg_catalog."default",
+    opertypeid integer,
+    post text COLLATE pg_catalog."default"
+)
+
+CREATE TABLE IF NOT EXISTS public.house_obj
+(
+    id integer,
+    objectid integer,
+    objectguid text COLLATE pg_catalog."default",
+    changeid integer,
+    housenum text COLLATE pg_catalog."default",
+    addnum1 text COLLATE pg_catalog."default",
+    addnum2 text COLLATE pg_catalog."default",
+    housetype integer,
+    addtype1 integer,
+    addtype2 integer,
+    opertypeid integer,
+    previd integer,
+    nextid integer,
+    updatedate date,
+    startdate date,
+    enddate date,
+    isactual integer,
+    isactive integer
+)
+
+CREATE TABLE IF NOT EXISTS public.houses_params
+(
+    id integer,
+    objectid integer,
+    changeid integer,
+    changeidend integer,
+    typeid integer,
+    value text COLLATE pg_catalog."default",
+    updatedate date,
+    startdate date,
+    enddate date
+)
+
+CREATE TABLE IF NOT EXISTS public.houses_types
+(
+    id integer,
+    name text COLLATE pg_catalog."default",
+    shortname text COLLATE pg_catalog."default",
+    isactive text COLLATE pg_catalog."default"
+)
+
+CREATE TABLE IF NOT EXISTS public.houses_types_add
+(
+    id integer,
+    name text COLLATE pg_catalog."default",
+    shortname text COLLATE pg_catalog."default",
+    isactive text COLLATE pg_catalog."default",
+    updatedate date,
+    startdate date,
+    enddate date
+)
+
+CREATE TABLE IF NOT EXISTS public.mun_hierarchy
+(
+    id integer,
+    objectid integer,
+    parentobjid integer,
+    changeid integer,
+    oktmo bigint,
+    previd integer,
+    nextid integer,
+    updatedate date,
+    startdate date,
+    enddate date,
+    isactive integer,
+    path text COLLATE pg_catalog."default"
+)
+
+
+
+
+
